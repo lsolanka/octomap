@@ -5,7 +5,7 @@ SET (octomath_SRCS
  )
 
 
-ADD_LIBRARY( octomath SHARED ${octomath_SRCS})
+ADD_LIBRARY( octomath ${octomath_SRCS})
 
 SET_TARGET_PROPERTIES( octomath PROPERTIES
   VERSION ${OCTOMAP_VERSION}

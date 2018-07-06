@@ -11,7 +11,7 @@ SET (octomap_SRCS
   )
 
 # dynamic and static libs, see CMake FAQ:
-ADD_LIBRARY( octomap SHARED ${octomap_SRCS})
+ADD_LIBRARY( octomap ${octomap_SRCS})
 set_target_properties( octomap PROPERTIES
   VERSION ${OCTOMAP_VERSION}
   SOVERSION ${OCTOMAP_SOVERSION}
@@ -36,14 +36,14 @@ TARGET_LINK_LIBRARIES(graph2tree octomap)
 ADD_EXECUTABLE(log2graph log2graph.cpp)
 TARGET_LINK_LIBRARIES(log2graph octomap)
 
-ADD_EXECUTABLE(binvox2bt binvox2bt.cpp)
-TARGET_LINK_LIBRARIES(binvox2bt octomap)
+#ADD_EXECUTABLE(binvox2bt binvox2bt.cpp)
+#TARGET_LINK_LIBRARIES(binvox2bt octomap)
 
 ADD_EXECUTABLE(bt2vrml bt2vrml.cpp)
 TARGET_LINK_LIBRARIES(bt2vrml octomap)
 
-ADD_EXECUTABLE(edit_octree edit_octree.cpp)
-TARGET_LINK_LIBRARIES(edit_octree octomap)
+# ADD_EXECUTABLE(edit_octree edit_octree.cpp)
+# TARGET_LINK_LIBRARIES(edit_octree octomap)
 
 ADD_EXECUTABLE(convert_octree convert_octree.cpp)
 TARGET_LINK_LIBRARIES(convert_octree octomap)
@@ -76,9 +76,7 @@ install(EXPORT octomap-targets DESTINATION share/octomap/)
 install(TARGETS
 	graph2tree
 	log2graph
-	binvox2bt
 	bt2vrml
-	edit_octree
 	convert_octree
 	eval_octree_accuracy
 	compare_octrees
